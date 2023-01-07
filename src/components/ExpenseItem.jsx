@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ExpencesItem() {
+export function ExpenseItem() {
   return <div>hello</div>;
 }
