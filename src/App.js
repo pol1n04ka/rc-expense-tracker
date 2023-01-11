@@ -28,13 +28,13 @@ const expenses = [
   },
 ];
 
-function returnExpence(expense) {
+function returnExpense(expense) {
   console.log(expense.date);
   return (
     <ExpenseItem
       key={expense.id}
       title={expense.title}
-      date={expense.date.toString()}
+      date={expense.date}
       price={expense.price}
     />
   );
@@ -43,7 +43,7 @@ function returnExpence(expense) {
 function App() {
   return (
     <div className="App">
-      {expenses.map((expense) => returnExpence(expense))}
+      {expenses.map((expense) => returnExpense(expense))}
     </div>
   );
 }
