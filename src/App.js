@@ -1,10 +1,49 @@
 import "./App.css";
-import { ExpencesItem } from "./components/ExpenseItem";
+import { ExpenseItem } from "./components/ExpenseItem";
+
+const expenses = [
+  {
+    id: "e1",
+    title: "Toilet paper",
+    date: new Date(2002, 1, 22),
+    price: 295.12,
+  },
+  {
+    id: "e2",
+    title: "Toilet paper",
+    date: new Date(20015, 4, 5),
+    price: 295.12,
+  },
+  {
+    id: "e3",
+    title: "Toilet paper",
+    date: new Date(2004, 7, 15),
+    price: 295.12,
+  },
+  {
+    id: "e4",
+    title: "Toilet paper",
+    date: new Date(2003, 2, 11),
+    price: 295.12,
+  },
+];
+
+function returnExpence(expense) {
+  console.log(expense.date);
+  return (
+    <ExpenseItem
+      key={expense.id}
+      title={expense.title}
+      date={expense.date.toString()}
+      price={expense.price}
+    />
+  );
+}
 
 function App() {
   return (
     <div className="App">
-      <ExpencesItem />
+      {expenses.map((expense) => returnExpence(expense))}
     </div>
   );
 }
