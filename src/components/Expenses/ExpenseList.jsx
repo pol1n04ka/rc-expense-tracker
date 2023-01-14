@@ -2,6 +2,7 @@ import { useState } from "react";
 import Card from "../UI/Card";
 import { ExpenseItem } from "./ExpenseItem";
 import "./ExpenseList.css";
+import ExpensesChart from "./ExpensesChart";
 import ExpensesFilter from "./ExpsensesFilter";
 
 export default function ExpenseList(props) {
@@ -15,14 +16,18 @@ export default function ExpenseList(props) {
     return item.date.getFullYear().toString() === filteredYear;
   });
 
+  console.log(filteredItems);
+
   const items = filteredItems.map((item) => {
     return (
-      <ExpenseItem
-        key={item.id}
-        title={item.title}
-        date={item.date}
-        amount={item.amount}
-      />
+      <li key={item.id}>
+        <ExpenseItem
+          // key={item.id}
+          title={item.title}
+          date={item.date}
+          amount={item.amount}
+        />
+      </li>
     );
   });
 
@@ -36,7 +41,8 @@ export default function ExpenseList(props) {
         selected={filteredYear}
         onChangeFilter={changeFilterHandler}
       />
-      {returnItems(items)}
+      <ExpensesChart expenses={filteredItems} />
+      <ul>{returnItems(items)}</ul>
     </Card>
   );
 }
